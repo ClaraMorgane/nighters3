@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.enzop.nighters2">
+    package="com.example.enzop.nighters2"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="8"/>
 
     <application
         android:allowBackup="true"
@@ -18,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Result Activity -->
+        <activity
+            android:name=".ResultActivity"
+            android:label="Result Activity">
+
+        </activity>
     </application>
+
+    <!--  Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
