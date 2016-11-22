@@ -39,12 +39,12 @@ public class ResultActivity extends ListActivity {
     ArrayList<HashMap<String, String>> productsList;
 
     // url to get result (to change every time)
-    private static String url_all_products = "http://api.androidhive.info/android_connect/get_all_products.php";
+    private static String url_all_products = "http://androidlb-22568197.us-west-2.elb.amazonaws.com/get_list.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
-    private static final String TAG_PRODUCTS = "products";
-    private static final String TAG_PID = "pid";
+    private static final String TAG_PRODUCTS = "nightclubs";
+    private static final String TAG_PID = "id";
     private static final String TAG_NAME = "name";
 
     // products JSONArray
@@ -107,7 +107,7 @@ public class ResultActivity extends ListActivity {
     /**
      * Background Async Task to Load all product by making HTTP Request
      * */
-    class LoadAllProducts extends AsyncTask<String, String, String> {
+    public class LoadAllProducts extends AsyncTask<String, String, String> {
 
         /**
          * Before starting background thread Show Progress Dialog
