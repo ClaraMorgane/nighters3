@@ -53,7 +53,7 @@ public class ResultActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.result);
+        setContentView(R.layout.mainscreenactivity);
 
         // Hashmap for ListView
         productsList = new ArrayList<HashMap<String, String>>();
@@ -62,11 +62,11 @@ public class ResultActivity extends ListActivity {
         new LoadAllProducts().execute();
 
         // Get listview
-        ListView lv = getListView();
+    //    ListView lv = getListView();
 
         // on seleting single product
         // launching Edit Product Screen
-        lv.setOnItemClickListener(new OnItemClickListener() {
+     /*   lv.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -83,8 +83,8 @@ public class ResultActivity extends ListActivity {
 
                 // starting new activity and expecting some response back
                 startActivityForResult(in, 100); */
-            }
-        });
+     //       }
+     //   });
 
     }
 
@@ -113,7 +113,7 @@ public class ResultActivity extends ListActivity {
          * Before starting background thread Show Progress Dialog
          * */
         @Override
-        protected void onPreExecute() {
+        public void onPreExecute() {
             super.onPreExecute();
             pDialog = new ProgressDialog(ResultActivity.this);
             pDialog.setMessage("Loading products. Please wait...");
@@ -125,7 +125,7 @@ public class ResultActivity extends ListActivity {
         /**
          * getting All products from url
          * */
-        protected String doInBackground(String... args) {
+        public String doInBackground(String... args) {
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             // getting JSON string from URL
@@ -180,7 +180,7 @@ public class ResultActivity extends ListActivity {
         /**
          * After completing background task Dismiss the progress dialog
          * **/
-        protected void onPostExecute(String file_url) {
+        public void onPostExecute(String file_url) {
             // dismiss the dialog after getting all products
             pDialog.dismiss();
             // updating UI from Background Thread
@@ -189,13 +189,13 @@ public class ResultActivity extends ListActivity {
                     /**
                      * Updating parsed JSON data into ListView
                      * */
-                    ListAdapter adapter = new SimpleAdapter(
+                    /*ListAdapter adapter = new SimpleAdapter(
                             ResultActivity.this, productsList,
                             R.layout.list_item, new String[] { TAG_PID,
                             TAG_NAME},
                             new int[] { R.id.pid, R.id.name });
                     // updating listview
-                    setListAdapter(adapter);
+                    setListAdapter(adapter);*/
                 }
             });
 
